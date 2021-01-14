@@ -1,0 +1,16 @@
+.header {
+    height: 85vh;
+    background-color: black;
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 6rem;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+}
