@@ -15,6 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,7 +26,7 @@
         <nav class="navbar navbar-expand-md">
             <div class="container">
                 <h1 class="navbar-brand">
-                    {{ config('app.name', 'My Body Is Ready!') }}
+                    <a href="/">{{ config('app.name', 'My Body Is Ready!') }}</a>
                 </h1>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -49,6 +51,12 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="/shopping-cart" class="nav-link">
+                                    <i>Shopping Cart</i>
+                                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

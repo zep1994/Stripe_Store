@@ -49,6 +49,12 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a href="/shopping-cart" class="nav-link">
+                                    <i>Shopping Cart</i>
+                                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
